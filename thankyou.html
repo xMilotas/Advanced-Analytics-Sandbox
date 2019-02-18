@@ -242,7 +242,7 @@ if (cart){
     }
     var orderID = new Date().valueOf();
     for (let index = 0; index < productPrice.length; index++) {
-        orderTotal+=parseFloat(productPrice[index])
+        orderTotal+=parseFloat(productPrice[index])*parseFloat(productQuant[index])
     }
   // Delete cookie
   deleteCookie("Cart")
