@@ -334,14 +334,14 @@
               "event_action": "add"
           })
           var cart = readCookie("Cart")
-        if (cart) {
-          // Take current cart and append new item
-          document.cookie = `Cart = ${cart},{${productID},${productName},${productPrice},${quant},${productBrand}})`
-        }
-        else 
-        // Create new cart cookie
-        document.cookie = `Cart = {${productID},${productName},${productPrice},${quant},${productBrand}}`
+      if (cart) {
+        // Take current cart and append new item
+        document.cookie = `Cart = ${cart};${productID},${productName},${productPrice},${quant},${productBrand})`
       }
+      else 
+      // Create new cart cookie
+      document.cookie = `Cart = ${productID},${productName},${productPrice},${quant},${productBrand}`
+    }
       
       function readCookie(name) {
             var reString = '(?:(?:^|.*;\\s*)' + name + '\\s*\\=\\s*([^;]*).*$)|^.*$';
