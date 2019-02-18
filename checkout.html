@@ -21,7 +21,14 @@
     
   </head>
   <body>
-  
+    <!-- Tealium Universal Tag -->
+    <script type="text/javascript">
+      (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/robert-bosch/uk-pt-hg-proaccessories-eshop/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+  </script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -454,8 +461,20 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
-
   <script src="js/main.js"></script>
-    
+  <script>
+  var utag_data = {        
+    "checkout_step"          : "2",                                                              
+    "country"                : "DE",                                                             
+    "currency_code"          : "EUR",                                                            
+    "division"               : "pt",                                                             
+    "ip_anonymization"       : "1",                                                              
+    "language"               : "DE",                                                             
+    "name"                   : "Test Site",                                             
+    "page_breadcrumb"        : ["Checkout", "Billing Details"],  
+    "page_type"              : "checkout",
+    "page_name"              :  window.location.pathname                                                                                                                           
+};
+  </script>
   </body>
 </html>

@@ -21,7 +21,14 @@
     
   </head>
   <body>
-  
+    <!-- Tealium Universal Tag -->
+    <script type="text/javascript">
+      (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/robert-bosch/uk-pt-hg-proaccessories-eshop/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+  </script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -155,10 +162,10 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <a href="shop-shoe.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Corater</a></h3>
+                    <h3><a href="shop-shoe.html">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -167,10 +174,10 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <a href="shop-polo.html"><img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Polo Shirt</a></h3>
+                    <h3><a href="shop-polo.html">Polo Shirt</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -192,10 +199,10 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <a href="shop-shoe.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Corater</a></h3>
+                    <h3><a href="shop-shoe.html">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -216,10 +223,10 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
+                    <a href="shop-shoe.html"><img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Corater</a></h3>
+                    <h3><a href="shop-shoe.html">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -492,6 +499,20 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
+  <script>
+  var utag_data = { 
+    "page_type"              : "category",
+    "product_impression_id"  : ["35123456", "45123456","65123456"],  
+    "product_impression_brand": ["Clothing", "Clothing"],
+    "country"                : "DE",                                                             
+    "currency_code"          : "EUR",                                                            
+    "division"               : "pt",                                                             
+    "ip_anonymization"       : "1",                                                              
+    "language"               : "DE",                                                             
+    "name"                   : "Test Site",                                             
+    "page_breadcrumb"        : ["shop,category"],  
+    "page_name"              :  window.location.pathname                      
+};
+  </script>
   </body>
 </html>

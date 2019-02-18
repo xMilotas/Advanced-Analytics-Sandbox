@@ -4,7 +4,6 @@
     <title>Shoppers &mdash; Colorlib e-Commerce Template</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700"> 
     <link rel="stylesheet" href="fonts/icomoon/style.css">
 
@@ -13,15 +12,33 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
-
-
     <link rel="stylesheet" href="css/aos.css">
-
     <link rel="stylesheet" href="css/style.css">
-    
   </head>
   <body>
-  
+  <!-- Tealium Universal Data Object -->
+  <script type="text/javascript">
+    
+var utag_data = { 
+    "page_type"              : "home",
+    "country"                : "DE",                                                             
+    "currency_code"          : "EUR",                                                            
+    "division"               : "pt",                                                             
+    "ip_anonymization"       : "1",                                                              
+    "language"               : "DE",                                                             
+    "name"                   : "Test Site",                                             
+    "page_breadcrumb"        : ["home"],  
+    "page_name"              :  window.location.pathname                      
+};
+  </script>
+  <!-- Tealium Universal Tag -->
+    <script type="text/javascript">
+      (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/robert-bosch/uk-pt-hg-proaccessories-eshop/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+  </script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -104,7 +121,7 @@
             <div class="intro-text text-center text-md-left">
               <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
+                <a href="/shop.html" class="btn btn-sm btn-primary">Shop Now</a>
               </p>
             </div>
           </div>

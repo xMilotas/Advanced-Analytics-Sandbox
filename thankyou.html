@@ -21,7 +21,14 @@
     
   </head>
   <body>
-  
+    <!-- Tealium Universal Tag -->
+    <script type="text/javascript">
+      (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/robert-bosch/uk-pt-hg-proaccessories-eshop/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+  </script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -201,6 +208,24 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
+  <script>
+      var utag_data = {                                                                
+        "country"                : "DE",                                                             
+        "currency_code"          : "EUR",                                                            
+        "division"               : "pt",                                                             
+        "ip_anonymization"       : "1",                                                              
+        "language"               : "DE",                                                             
+        "name"                   : "Test Site",                                             
+        "page_breadcrumb"        : ["Checkout", "Order Confirmation"],  
+        "page_type"              : "purchase",
+        "page_name"              :  window.location.pathname,    
+        "order_grand_total"  : orderTotal,                                                        
+        "order_id"           : orderID,                                                       
+        "product_id"         : productID,                                              
+        "product_name"       : productName,                                             
+        "product_price"      : productPrice,                                               
+        "product_quantity"   : productQuant                                                                                                 
+};                                                                                                                       
+      </script>
   </body>
 </html>

@@ -21,7 +21,14 @@
     
   </head>
   <body>
-  
+    <!-- Tealium Universal Tag -->
+    <script type="text/javascript">
+      (function(a,b,c,d){
+      a='//tags.tiqcdn.com/utag/robert-bosch/uk-pt-hg-proaccessories-eshop/prod/utag.js';
+      b=document;c='script';d=b.createElement(c);d.src=a;d.type='text/java'+c;d.async=true;
+      a=b.getElementsByTagName(c)[0];a.parentNode.insertBefore(d,a);
+      })();
+  </script>
   <div class="site-wrap">
     <header class="site-navbar" role="banner">
       <div class="site-navbar-top">
@@ -99,7 +106,7 @@
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Tank Top T-Shirt</strong></div>
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Tank Top</strong></div>
         </div>
       </div>
     </div>  
@@ -111,10 +118,10 @@
             <img src="images/cloth_1.jpg" alt="Image" class="img-fluid">
           </div>
           <div class="col-md-6">
-            <h2 class="text-black">Tank Top T-Shirt</h2>
+            <h2 class="text-black" id="prodName">Tank Top</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, vitae, explicabo? Incidunt facere, natus soluta dolores iusto! Molestiae expedita veritatis nesciunt doloremque sint asperiores fuga voluptas, distinctio, aperiam, ratione dolore.</p>
             <p class="mb-4">Ex numquam veritatis debitis minima quo error quam eos dolorum quidem perferendis. Quos repellat dignissimos minus, eveniet nam voluptatibus molestias omnis reiciendis perspiciatis illum hic magni iste, velit aperiam quis.</p>
-            <p><strong class="text-primary h4">$50.00</strong></p>
+            <p><strong class="text-primary h4" id="prodPrice">35.00</strong></p>
             <div class="mb-1 d-flex">
               <label for="option-sm" class="d-flex mr-3 mb-3">
                 <span class="d-inline-block mr-2" style="top:-2px; position: relative;"><input type="radio" id="option-sm" name="shop-sizes"></span> <span class="d-inline-block text-black">Small</span>
@@ -134,14 +141,14 @@
               <div class="input-group-prepend">
                 <button class="btn btn-outline-primary js-btn-minus" type="button">&minus;</button>
               </div>
-              <input type="text" class="form-control text-center" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+              <input type="text" class="form-control text-center" id="prodQuant" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
               <div class="input-group-append">
                 <button class="btn btn-outline-primary js-btn-plus" type="button">&plus;</button>
               </div>
             </div>
 
             </div>
-            <p><a href="cart.html" class="buy-now btn btn-sm btn-primary">Add To Cart</a></p>
+            <p><a href="cart.html" class="buy-now btn btn-sm btn-primary" onclick="addToCart()">Add To Cart</a></p>
 
           </div>
         </div>
@@ -164,7 +171,7 @@
                     <img src="images/cloth_1.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Tank Top</a></h3>
+                    <h3><a href="shop-single.html">Tank Top</a></h3>
                     <p class="mb-0">Finding perfect t-shirt</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -176,7 +183,7 @@
                     <img src="images/shoe_1.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Corater</a></h3>
+                    <h3><a href="shop-shoe.html">Corater</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -188,7 +195,7 @@
                     <img src="images/cloth_2.jpg" alt="Image placeholder" class="img-fluid">
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="#">Polo Shirt</a></h3>
+                    <h3><a href="shop-polo.html">Polo Shirt</a></h3>
                     <p class="mb-0">Finding perfect products</p>
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
@@ -308,6 +315,62 @@
   <script src="js/aos.js"></script>
 
   <script src="js/main.js"></script>
-    
+  <script>
+var quant = document.querySelector("#prodQuant").value
+var productName = document.querySelector("#prodName").innerHTML
+var productPrice = document.querySelector("#prodPrice").innerHTML
+var productID = productPrice.split(".")[0]+"123456";
+var productBrand = "Clothing"
+
+function addToCart(){
+    utag.link({
+        "product_id": [productID],
+        "product_name": [productName],
+        "product_quantity": [quant],
+        "product_price": [productPrice],
+        "product_brand": [productBrand],
+        "event_type": "cart",
+        "event_action": "add"
+    })
+  var cart = readCookie("Cart")
+  if (cart) {
+    // Take current cart and append new item
+    document.cookie = cart+`,{${productID},${productName},${productPrice},${quant},${productBrand}})`
+  }
+  else 
+  // Create new cart cookie
+  document.cookie = `Cart = {${productID},${productName},${productPrice},${quant},${productBrand}}`
+}
+
+function readCookie(name) {
+      var reString = '(?:(?:^|.*;\\s*)' + name + '\\s*\\=\\s*([^;]*).*$)|^.*$';
+      var re = new RegExp(reString);
+      var cookieValue = document.cookie.replace(re, "$1");
+      if (!cookieValue) return undefined;
+      return decodeURIComponent(cookieValue);
+}
+
+var utag_data = { 
+    "page_type"     : "product_view",
+    "product_id"    : [productPrice.split(".")[0]+"123456"],
+    "product_name"  :  productName,
+    "country"                : "DE",                                                             
+    "currency_code"          : "EUR",                                                            
+    "division"               : "pt",                                                             
+    "ip_anonymization"       : "1",                                                              
+    "language"               : "DE",                                                             
+    "name"                   : "Test Site",                                             
+    "page_breadcrumb"        : ["product"],  
+    "page_name"              :  window.location.pathname                      
+};
+
+try {
+    var quant = document.querySelector("#prodQuant").value
+  }
+  catch(error) {
+    console.error(error);
+  }
+  
+      </script> 
   </body>
 </html>
