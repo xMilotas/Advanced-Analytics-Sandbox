@@ -316,43 +316,57 @@
 
   <script src="js/main.js"></script>
   <script>
-var quant = document.querySelector("#prodQuant").value
-var productName = document.querySelector("#prodName").innerHTML
-var productPrice = document.querySelector("#prodPrice").innerHTML
-
-function addToCart(){
-    utag.link({
-        "product_id": [productPrice.split(".")[0]+"123456"],
-        "product_name": [productName],
-        "product_quantity": [quant],
-        "product_price": [productPrice],
-        "product_brand": ["Clothing"],
-        "event_type": "cart",
-        "event_action": "add"
-    })
-}
-
-var utag_data = { 
-    "page_type"     : "product_view",
-    "product_id"    : [productPrice.split(".")[0]+"123456"],
-    "product_name"  :  productName,
-    "country"                : "DE",                                                             
-    "currency_code"          : "EUR",                                                            
-    "division"               : "pt",                                                             
-    "ip_anonymization"       : "1",                                                              
-    "language"               : "DE",                                                             
-    "name"                   : "Test Site",                                             
-    "page_breadcrumb"        : ["product"],  
-    "page_name"              :  window.location.pathname                      
-};
-
-try {
-    var quant = document.querySelector("#prodQuant").value
-  }
-  catch(error) {
-    console.error(error);
-  }
-  
-      </script> 
+      var quant = document.querySelector("#prodQuant").value
+      var productName = document.querySelector("#prodName").innerHTML
+      var productPrice = document.querySelector("#prodPrice").innerHTML
+      var productID = productPrice.split(".")[0]+"123456";
+      var productBrand = "Clothing"
+      
+      function addToCart(){
+        var quant = document.querySelector("#prodQuant").value
+          utag.link({
+              "product_id": [productID],
+              "product_name": [productName],
+              "product_quantity": [quant],
+              "product_price": [productPrice],
+              "product_brand": [productBrand],
+              "event_type": "cart",
+              "event_action": "add"
+          })
+        var cart = readCookie("Cart")
+        if (cart) {
+          // Take current cart and append new item
+          document.cookie = `Cart = ${cart};product_id:${productID},product_name:${productName},product_price:${productPrice},product_quantity:${quant},product_brand:${productBrand}`
+        }
+        else 
+        // Create new cart cookie
+        document.cookie = `Cart = product_id:${productID},product_name:${productName},product_price:${productPrice},product_quantity:${quant},product_brand:${productBrand}`
+      }
+      
+      function readCookie(name) {
+            var reString = '(?:(?:^|.*;\\s*)' + name + '\\s*\\=\\s*([^;]*).*$)|^.*$';
+            var re = new RegExp(reString);
+            var cookieValue = document.cookie.replace(re, "$1");
+            if (!cookieValue) return undefined;
+            return decodeURIComponent(cookieValue);
+      }
+      
+      var utag_data = { 
+          "page_type"     : "product_view",
+          "product_id"    : [productPrice.split(".")[0]+"123456"],
+          "product_name"  :  productName,
+          "country"                : "DE",                                                             
+          "currency_code"          : "EUR",                                                            
+          "division"               : "pt",                                                             
+          "ip_anonymization"       : "1",                                                              
+          "language"               : "DE",                                                             
+          "name"                   : "Test Site",                                             
+          "page_breadcrumb"        : ["product"],  
+          "page_name"              :  window.location.pathname                      
+      };
+    </script> 
   </body>
 </html>
+
+
+

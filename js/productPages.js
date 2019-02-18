@@ -81,23 +81,6 @@ checkout_step=1
 
 
 */
-var utag_data = {                                                                
-        "country"                : "DE",                                                             
-        "currency_code"          : "EUR",                                                            
-        "division"               : "pt",                                                             
-        "ip_anonymization"       : "1",                                                              
-        "language"               : "DE",                                                             
-        "name"                   : "Test Site",                                             
-        "page_breadcrumb"        : ["Checkout", "Order Confirmation"],  
-        "page_type"              : "purchase",
-        "page_name"              :  window.location.pathname,    
-        "order_grand_total"  : orderTotal,                                                        
-        "order_id"           : orderID,                                                       
-        "product_id"         : productID,                                              
-        "product_name"       : productName,                                             
-        "product_price"      : productPrice,                                               
-        "product_quantity"   : productQuant                                                                                                 
-};    
 
 function readCookie(name) {
     var reString = '(?:(?:^|.*;\\s*)' + name + '\\s*\\=\\s*([^;]*).*$)|^.*$';
@@ -108,13 +91,46 @@ function readCookie(name) {
 }
 
 var cart = readCookie("Cart")
+var productID = []
+var productName = []
+var productPrice = []
+var productQuant = []
+var productBrand = []
+var orderTotal = 0;
 if (cart){
+    // Get all items in cart
+    cartItems = cart.split(";");
+    // Loop trough all items and get the corresponding values:
+    for (var item of cartItems){
+    item = item.split(",")
+    productID.push(item[0].split(":")[1])
+    productName.push(item[1].split(":")[1])
+    productPrice.push(item[2].split(":")[1])
+    productQuant.push(item[3].split(":")[1])
+    productBrand.push(item[4].split(":")[1])
+    }
     var orderID = new Date().valueOf();
-    var productID = 
-    var productName =
-    var productPrice =
-    var productQuant =
-
-    var orderTotal = 
+    for (let index = 0; index < productPrice.length; index++) {
+        orderTotal+= productPrice[index];
+        
+    }
 }
 
+var utag_data = {                                                                
+        "country"                : "DE",                                                             
+        "currency_code"          : "EUR",                                                            
+        "division"               : "pt",                                                             
+        "ip_anonymization"       : "1",                                                              
+        "language"               : "DE",                                                             
+        "name"                   : "Test Site",                                             
+        "page_breadcrumb"        : ["Checkout", "Order Confirmation"],  
+        "page_type"              : "purchase",
+        "page_name"              :  window.location.pathname,    
+        "order_grand_total"     : orderTotal,                                                        
+        "order_id"              : orderID,                                                       
+        "product_id"            : productID,                                              
+        "product_name"          : productName,                                             
+        "product_price"         : productPrice,   
+        "product_brand"         : productBrand,                                            
+        "product_quantity"      : productQuant                                                                                                 
+};    
