@@ -336,7 +336,7 @@
           var cart = readCookie("Cart")
       if (cart) {
         // Take current cart and append new item
-        document.cookie = `Cart = ${cart};${productID},${productName},${productPrice},${quant},${productBrand})`
+        document.cookie = `Cart = ${cart}+${productID},${productName},${productPrice},${quant},${productBrand})`
       }
       else 
       // Create new cart cookie
