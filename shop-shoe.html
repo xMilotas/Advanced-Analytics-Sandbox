@@ -333,7 +333,7 @@
               "event_type": "cart",
               "event_action": "add"
           })
-        var cart = readCookie("Cart")
+          var cart = readCookie("Cart")
         if (cart) {
           // Take current cart and append new item
           document.cookie = `Cart = ${cart},{${productID},${productName},${productPrice},${quant},${productBrand}})`
