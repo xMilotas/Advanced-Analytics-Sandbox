@@ -103,16 +103,15 @@ if (cart){
     // Loop trough all items and get the corresponding values:
     for (var item of cartItems){
     item = item.split(",")
-    productID.push(item[0].split(":")[1])
-    productName.push(item[1].split(":")[1])
-    productPrice.push(item[2].split(":")[1])
-    productQuant.push(item[3].split(":")[1])
-    productBrand.push(item[4].split(":")[1])
+    productID.push(item[0])
+    productName.push(item[1])
+    productPrice.push(item[2])
+    productQuant.push(item[3])
+    productBrand.push(item[4])
     }
     var orderID = new Date().valueOf();
     for (let index = 0; index < productPrice.length; index++) {
-        orderTotal+= productPrice[index];
-        
+        orderTotal+=parseFloat(productPrice[index])
     }
 }
 
