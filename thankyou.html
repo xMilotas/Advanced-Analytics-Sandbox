@@ -217,6 +217,10 @@ function readCookie(name) {
     return decodeURIComponent(cookieValue);
 }
 
+function deleteCookie( name ) {
+  document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+}
+
 var cart = readCookie("Cart")
 var productID = []
 var productName = []
@@ -240,6 +244,8 @@ if (cart){
     for (let index = 0; index < productPrice.length; index++) {
         orderTotal+=parseFloat(productPrice[index])
     }
+  // Delete cookie
+  deleteCookie("Cart")
 }
 
 var utag_data = {                                                                
